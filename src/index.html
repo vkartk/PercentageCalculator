@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="/css/style.css">
+    <title>Percentage Calculator</title>    
+  </head>
+  <body>
+   <section class="calc-container"> 
+    <div class="site-title"><h1>
+        Percentage Calculator<a href="https://letscommit.github.io/PercentageCalculator/" target="_blank"> v1.0</a></h1> 
+      <p>Please provide any two values below and click the "Calculate" button to get the third value.</p>
+    </div>
+    <h3>X is what % of Y?</h3>
+    <form id="calc1">
+    <div class="col col-1-3">
+      <input id="calc1-num-x" type="number" /> 
+    </div>
+    <div class="col col-1-3">
+      <input id="calc1-num-y" type="number" /> 
+    </div>
+    <div class="col col-1-3">
+      <input id="calc1-submit" class="calc-btn" type="submit" value="Calculate" />
+    </div>
+    <div class="col col-1-2">
+        <button class="result-txt" disabled>Result</button>
+    </div>
+    <div class="col col-1-2">
+        <input id="calc1-solution" type="number" readonly="readonly" />
+    </div>
+    <button class="calc-btn clear" type="reset" value="Reset">Reset</button>
+    </form>
+   </section>
+   <section class="calc-container" >    
+    <h3>What is X% of Y?</h3>
+    <form id="calc2">
+    <div class="col col-1-3">
+       <input id="calc2-num-x" type="number" /> 
+    </div>
+    <div class="col col-1-3">
+      <input id="calc2-num-y" type="number" /> 
+    </div>
+    <div class="col col-1-3">
+      <input id="calc2-submit" class="calc-btn" type="submit" value="Calculate" />
+    </div>
+    <div class="col col-1-2">
+      <button class="result-txt" disabled>Result</button>
+    </div>
+    <div class="col col-1-2">
+      <input id="calc2-solution" type="number" readonly="readonly" />
+    </div>
+    <div>
+      <button class="calc-btn clear" type="reset" value="Reset">Reset</button>
+    </form>
+    </section>
+    <section class="calc-container">  
+    <h3>What is the percentage increase or decrease?</h3>
+    <form id="calc3">
+      <div class="col col-1-3">
+      <input id="calc3-num-x" type="number" />
+      </div>
+      <div class="col col-1-3">
+      <input id="calc3-num-y" type="number" />
+      </div>
+      <div class="col col-1-3"> 
+      <input id="calc3-submit" class="calc-btn" type="submit" value="Calculate" />
+      </div>
+      <div class="col col-1-2">
+        <button class="result-txt" disabled>Result</button>
+      </div>
+      <div class="col col-1-2">
+      <input id="calc3-solution" type="number" readonly="readonly" />
+      </div>
+      <button class="calc-btn clear" type="reset" value="Reset">Reset</button>
+    </form>
+    </section>
+    <script>
+      // X is what % of Y?
+      document.getElementById("calc1-submit")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          const numX = document.getElementById("calc1-num-x").value;
+          const numY = document.getElementById("calc1-num-y").value;
+          const percentage = (numX / numY) * 100;
+          document.getElementById("calc1-solution").value = percentage;
+        });
+      // What is X% of Y?
+      document.getElementById("calc2-submit")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          const numX = document.getElementById("calc2-num-x").value;
+          const numY = document.getElementById("calc2-num-y").value;
+          const percentage = (numX / 100) * numY;
+          document.getElementById("calc2-solution").value = percentage;
+        });
+      // What is the percentage increase or decrease?
+      document.getElementById("calc3-submit")
+        .addEventListener("click", function (e) {
+          e.preventDefault();
+          const numX = document.getElementById("calc3-num-x").value;
+          const numY = document.getElementById("calc3-num-y").value;
+          const percentage = (numY - numX) / numX * 100;
+          document.getElementById("calc3-solution").value = percentage;
+        });
+    </script>
+  </body>
+</html>
