@@ -162,3 +162,6 @@ input[type=number] {
 input:read-only{
   cursor:default;
 }
+input[type="submit"]{
+  cursor:pointer
+}
