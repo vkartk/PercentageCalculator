@@ -32,7 +32,7 @@
         <button class="result-txt" disabled>Result</button>
     </div>
     <div class="col col-1-2">
-        <input id="calc1-solution" type="number" readonly="readonly" />
+        <input id="calc1-solution" type="number" onclick="copyToClipboard('calc1-solution')" readonly="readonly" />
     </div>
     <button class="calc-btn clear" type="reset" value="Reset">Reset</button>
     </form>
@@ -53,7 +53,7 @@
       <button class="result-txt" disabled>Result</button>
     </div>
     <div class="col col-1-2">
-      <input id="calc2-solution" type="number" readonly="readonly" />
+      <input id="calc2-solution" type="number" onclick="copyToClipboard('calc2-solution')" readonly="readonly" />
     </div>
     <div>
       <button class="calc-btn clear" type="reset" value="Reset">Reset</button>
@@ -75,7 +75,7 @@
         <button class="result-txt" disabled>Result</button>
       </div>
       <div class="col col-1-2">
-      <input id="calc3-solution" type="number" readonly="readonly" />
+      <input id="calc3-solution" type="number" onclick="copyToClipboard('calc3-solution')" readonly="readonly" />
       </div>
       <button class="calc-btn clear" type="reset" value="Reset">Reset</button>
     </form>
@@ -108,6 +108,15 @@
           const percentage = (numY - numX) / numX * 100;
           document.getElementById("calc3-solution").value = percentage;
         });
+      const copyToClipboard = async selector => {
+        const copyText = document.getElementById(selector).value
+        try {
+          await navigator.clipboard.writeText(copyText);
+          console.log('Copied to clipboard');
+        } catch (err) {
+          console.error('Failed to copy: ', err);
+        }
+      }
     </script>
   </body>
 </html>
