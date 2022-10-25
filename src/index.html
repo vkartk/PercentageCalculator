@@ -80,6 +80,7 @@
       <button class="calc-btn clear" type="reset" value="Reset">Reset</button>
     </form>
     </section>
+    <div id="copied">Copied to Clipboard.</div>
     <script>
       // X is what % of Y?
       document.getElementById("calc1-submit")
@@ -112,10 +113,16 @@
         const copyText = document.getElementById(selector).value
         try {
           await navigator.clipboard.writeText(copyText);
+          CopiedToClipboard()
           console.log('Copied to clipboard');
         } catch (err) {
           console.error('Failed to copy: ', err);
         }
+      }
+      const CopiedToClipboard =  () => {
+        const copied = document.getElementById("copied");
+        copied.className = "show";
+        setTimeout(function(){ copied.className = copied.className.replace("show", ""); }, 3000);
       }
     </script>
   </body>
